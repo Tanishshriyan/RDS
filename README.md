@@ -81,10 +81,11 @@ The repository reflects a **research and learning-oriented implementation**, not
 ### Installation Steps
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/Tanishshriyan/RDS.git
 2. Navigate to the project directory:
    
-        cd <project_directory>
+        cd RDS
+         cd RansomwareDetection
   
 3.Open Command Prompt as Administrator:
 
