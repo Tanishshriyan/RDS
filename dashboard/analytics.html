@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RansomGuard - Live Analytics</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-icon"></span>
+        <h1 class="brand-name">RansomGuard</h1>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Back</a>
+      </nav>
+
+      <div class="connection-status" id="ws-status">
+        <span class="status-dot"></span>
+        <span class="status-text">Connecting...</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="engine-section" style="padding-top: 90px;">
+    <div class="section-header">
+      <h2 class="section-title">Behavior Fingerprinting (Live)</h2>
+      <p class="section-subtitle">Charts update from the defense engine in real time.</p>
+    </div>
+
+    <div class="engine-grid">
+      <div class="engine-card">
+        <h4 class="engine-title">Threat score (timeline)</h4>
+        <p class="engine-text">Shows how suspicion changes over time.</p>
+        <div id="scoreLine" style="height: 260px;"></div>
+      </div>
+
+      <div class="engine-card">
+        <h4 class="engine-title">Behavior feature heatmap</h4>
+        <p class="engine-text">Visual fingerprint across features (e.g., I/O burst, entropy, rename rate).</p>
+        <div id="featureHeatmap" style="height: 260px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="analytics.js"></script>
+  <!-- Custom Cursor Script -->
+  <script>
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      follower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+
+    // Hide on mouse leave
+    document.addEventListener('mouseleave', () => {
+      cursor.classList.add('hidden');
+      follower.classList.add('hidden');
+    });
+
+    document.addEventListener('mouseenter', () => {
+      cursor.classList.remove('hidden');
+      follower.classList.remove('hidden');
+    });
+
+    // Hover effects
+    const hoverElements = document.querySelectorAll('a, button, .nav-link');
+    hoverElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        document.body.classList.add('cursor-hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        document.body.classList.remove('cursor-hover');
+      });
+    });
+
+    // Click effect
+    document.addEventListener('mousedown', () => {
+      document.body.classList.add('cursor-active');
+    });
+    document.addEventListener('mouseup', () => {
+      document.body.classList.remove('cursor-active');
+    });
+  </script>
+</body>
+</html>
