@@ -83,12 +83,12 @@ The repository reflects a **research and learning-oriented implementation**, not
    ```bash
    git clone <repository_url>
 2. Navigate to the project directory:
-
-  cd <project_directory>
+   
+        cd <project_directory>
   
-3.Open Command Prompt as Administrator.
+3.Open Command Prompt as Administrator:
 
-  Run the setup script: python setup.py
+      python setup.py
 
 ---
 
