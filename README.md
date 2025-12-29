@@ -85,7 +85,6 @@ The repository reflects a **research and learning-oriented implementation**, not
 2. Navigate to the project directory:
    
         cd RDS
-         cd RansomwareDetection
   
 3.Open Command Prompt as Administrator:
 
